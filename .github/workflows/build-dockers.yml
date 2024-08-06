@@ -1,0 +1,65 @@
+name: Build Pact-core Docker Images
+run-name: Build Pact-core ${{ github.ref_name }}
+
+on:
+  push:
+    tags:
+      - 'v4.[0-9]+.[0-9]+**'
+      - 'v5.[0-9]+.[0-9]+**'
+
+jobs:
+  build-pact-v4:
+    if: startsWith(github.event.ref, 'refs/tags/v4')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build v4 Pact Docker Images
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64
+          file: ./dockers/v4/Dockerfile
+          push: true
+          tags: gielinorian/pact-core:${{ github.ref_name }}, gielinorian/pact-core:latest
+
+  build-pact-v5:
+    if: startsWith(github.event.ref, 'refs/tags/v5')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build v5 Pact Docker Images
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          file: ./dockers/v5/Dockerfile
+          push: true
+          tags: gielinorian/pact-core:${{ github.ref_name }}
