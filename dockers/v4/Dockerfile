@@ -6,7 +6,7 @@ RUN apt-get update && \
 
 WORKDIR /tmp
 
-ADD https://github.com/kadena-io/pact/releases/download/v4.13.0/pact-4.13.0-linux-22.04.zip pact.zip
+ADD https://github.com/kadena-io/pact/releases/download/v4.13.1/pact-4.13.1-linux-22.04.zip pact.zip
 
 RUN unzip pact.zip \
     && chmod +x pact \

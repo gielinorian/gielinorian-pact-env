@@ -12,6 +12,7 @@ We currently support both the legacy versions and the new core releases. Note th
 
 | Version     | Description                                 | Architectures Supported         | Release Notes                                                                 |
 |-------------|--------------------------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| 4.13.0      | Latest Legacy Version                       | `amd64`                         | [Release Notes](https://github.com/gielinorian/gielinorian-pact-env/releases/tag/v4.13.0)  |
+| 4.13.1      | Latest Legacy Version                       | `amd64`                         | [Release Notes](https://github.com/gielinorian/gielinorian-pact-env/releases/tag/v4.13.1)  |
+| 4.13.0      | Legacy Version (deprecated)                 | `amd64`                         | [Release Notes](https://github.com/gielinorian/gielinorian-pact-env/releases/tag/v4.13.0)  |
 | 4.12.0      | Legacy Version (deprecated)                 | `amd64`                         | [Release Notes](https://github.com/gielinorian/gielinorian-pact-env/releases/tag/v4.12.0)  |
 | v5.0.0-beta | Upcoming Beta Release (v5.0.0)              | `amd64`, `arm64`                | [Release Notes](https://github.com/gielinorian/gielinorian-pact-env/releases/tag/v5.0.0-beta) |
